@@ -1,5 +1,11 @@
 import { Component, OnInit, VERSION } from '@angular/core';
-import { Incined } from './app.model';
+import {
+  BasicInfo,
+  DetailsOfIncident,
+  DetailsOfPersonAffected,
+  DetailsOfReportingPerson,
+  Incined,
+} from './app.model';
 
 @Component({
   selector: 'my-app',
@@ -12,6 +18,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.incidentObj = new Incined();
+    this.incidentObj.detailsOfPersonAffected = new DetailsOfPersonAffected();
+    this.incidentObj.detailsOfPersonAffected.basicInfo = new BasicInfo();
+    this.incidentObj.detailsOfReportingPerson = new DetailsOfReportingPerson();
+    this.incidentObj.detailsOfReportingPerson.basicInfo = new BasicInfo();
+    this.incidentObj.detailsOfIncident = new DetailsOfIncident();
     console.log(this.incidentObj);
   }
 }
