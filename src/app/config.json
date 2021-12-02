@@ -1,0 +1,26 @@
+{
+  "detailsOfPersonAffected": {
+    "whoAffected": "",
+    "firstName": "",
+    "lastName": "",
+    "dob": "",
+    "phNo": "",
+    "emailId": "",
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "occupation": ""
+  },
+  "detailsOfReportingPerson": {
+    "firstName": "",
+    "lastName": "",
+    "dob": "",
+    "phNo": "",
+    "emailId": "",
+    "address": "",
+    "city": "",
+    "postcode": "",
+    "occupation": ""
+  },
+  "detailsOfIncident": {}
+}
