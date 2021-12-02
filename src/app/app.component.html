@@ -1,1 +1,269 @@
 <h1>Report Incident</h1>
+
+<select
+  name="typeOfIncident"
+  id="ddltypeOfIncident"
+  [(ngModel)]="incidentObj.typeOfIncident"
+>
+  <option selected disabled>Selecte type of incident</option>
+  <option [value]="report" *ngFor="let report of typeOfIncident">
+    {{ report }}
+  </option>
+</select>
+<br />
+<div>
+  <h3>Details of person injured/affected</h3>
+  <select
+    name="typeOfIncident"
+    id="ddltypeOfIncident"
+    [(ngModel)]="incidentObj.detailsOfPersonAffected.whoAffected"
+  >
+    <option selected disabled>Selecte who is injured person</option>
+    <option [value]="person" *ngFor="let person of injuredPerson">
+      {{ person }}
+    </option>
+  </select>
+  <br />
+  <input
+    type="text"
+    name="firstName"
+    placeholder="First name"
+    [(ngModel)]="incidentObj.detailsOfPersonAffected.basicInfo.firstName"
+  />
+  <br />
+  <input
+    type="text"
+    name="lastName"
+    placeholder="Last name"
+    [(ngModel)]="incidentObj.detailsOfPersonAffected.basicInfo.lastName"
+  />
+  <br />
+  <input
+    type="date"
+    name="dob"
+    placeholder="Date of birth"
+    [(ngModel)]="incidentObj.detailsOfPersonAffected.basicInfo.dob"
+  />
+  <br />
+  <input
+    type="text"
+    name="phno"
+    placeholder="Phone no"
+    [(ngModel)]="incidentObj.detailsOfPersonAffected.basicInfo.phNo"
+  />
+  <br />
+  <input
+    type="text"
+    name="email"
+    placeholder="Email Id"
+    [(ngModel)]="incidentObj.detailsOfPersonAffected.basicInfo.emailId"
+  />
+  <br />
+  <textarea
+    name="address"
+    placeholder="Addres"
+    [(ngModel)]="incidentObj.detailsOfPersonAffected.basicInfo.address"
+  ></textarea>
+  <br />
+  <input
+    type="text"
+    name="city"
+    placeholder="City"
+    [(ngModel)]="incidentObj.detailsOfPersonAffected.basicInfo.city"
+  />
+  <br />
+  <input
+    type="text"
+    name="postcode"
+    placeholder="Postcode"
+    [(ngModel)]="incidentObj.detailsOfPersonAffected.basicInfo.postcode"
+  />
+  <br />
+  <input
+    type="text"
+    name="occupation"
+    placeholder="Occupation"
+    [(ngModel)]="incidentObj.detailsOfPersonAffected.basicInfo.occupation"
+  />
+</div>
+
+<div>
+  <h3>Details of the person reporting the incident</h3>
+  <input
+    type="text"
+    name="firstName"
+    placeholder="First name"
+    [(ngModel)]="incidentObj.detailsOfReportingPerson.basicInfo.firstName"
+  />
+  <br />
+  <input
+    type="text"
+    name="lastName"
+    placeholder="Last name"
+    [(ngModel)]="incidentObj.detailsOfReportingPerson.basicInfo.lastName"
+  />
+  <br />
+  <input
+    type="text"
+    name="phno"
+    placeholder="Phone no"
+    [(ngModel)]="incidentObj.detailsOfReportingPerson.basicInfo.phNo"
+  />
+  <br />
+  <input
+    type="text"
+    name="email"
+    placeholder="Email Id"
+    [(ngModel)]="incidentObj.detailsOfReportingPerson.basicInfo.emailId"
+  />
+  <br />
+  <textarea
+    name="address"
+    placeholder="Addres"
+    [(ngModel)]="incidentObj.detailsOfReportingPerson.basicInfo.address"
+  ></textarea>
+  <br />
+  <input
+    type="text"
+    name="city"
+    placeholder="City"
+    [(ngModel)]="incidentObj.detailsOfReportingPerson.basicInfo.city"
+  />
+  <br />
+  <input
+    type="text"
+    name="postcode"
+    placeholder="Postcode"
+    [(ngModel)]="incidentObj.detailsOfReportingPerson.basicInfo.postcode"
+  />
+  <br />
+  <input
+    type="text"
+    name="occupation"
+    placeholder="Occupation"
+    [(ngModel)]="incidentObj.detailsOfReportingPerson.basicInfo.occupation"
+  />
+</div>
+<div>
+  <h3>Details of the incident</h3>
+  <input
+    type="date"
+    name="dateTImeOfIncident"
+    placeholder="Date time of incident"
+    [(ngModel)]="incidentObj.detailsOfIncident.dateTimeOfIncident"
+  />
+  <br />
+  <input
+    type="text"
+    name="incidentPlace"
+    placeholder="Place of incident"
+    [(ngModel)]="incidentObj.detailsOfIncident.placeOfIncident"
+  />
+  <br />
+  <div *ngIf="incidentObj.typeOfIncident === 'Accident report'">
+    <input
+      type="text"
+      name="howIncidentHappen"
+      placeholder="How incident happen"
+      [(ngModel)]="incidentObj.detailsOfIncident.howIncidentHappen"
+    />
+    <br />
+    <input
+      type="text"
+      name="injuredPersonExplanation"
+      placeholder="Injured person explanation"
+      [(ngModel)]="incidentObj.detailsOfIncident.injuredPersonExplanation"
+    />
+    <br />
+    <input
+      type="text"
+      name="whatFirstAidProvided"
+      placeholder="What first aid provided"
+      [(ngModel)]="incidentObj.detailsOfIncident.whatFirstAidProvided"
+    />
+    <br />
+    <input
+      type="text"
+      name="whoProvidedFirstAid"
+      placeholder="Who provided first aid"
+      [(ngModel)]="incidentObj.detailsOfIncident.whoProvidedFirstAid"
+    />
+    <br />
+    <select
+      name="isPersonGoHospital"
+      id="ddlIsPersonGoHospital"
+      [(ngModel)]="incidentObj.detailsOfIncident.isInjuredPersonGoHospital"
+    >
+      <option selected disabled>Did injured person go to the hospital?</option>
+      <option [value]="data" *ngFor="let data of commoneOption">
+        {{ data }}
+      </option>
+    </select>
+    <br />
+    <textarea
+      *ngIf="incidentObj.detailsOfIncident.isInjuredPersonGoHospital === 'Yes'"
+      name="incidentDetails"
+      placeholder="Incident details"
+      [(ngModel)]="incidentObj.detailsOfIncident.details"
+    ></textarea>
+  </div>
+
+  <div *ngIf="incidentObj.typeOfIncident === 'Allergen Reaction report'">
+    <textarea
+      name="incidentDetails"
+      placeholder="Incident details"
+      [(ngModel)]="incidentObj.detailsOfIncident.incidentDetails"
+    ></textarea>
+    <br />
+    <input
+      type="text"
+      name="incidentPlace"
+      placeholder="What were the food items consumed?"
+      [(ngModel)]="incidentObj.detailsOfIncident.consumedFoodItems"
+    />
+    <br />
+    <select
+      name="isPersonGoHospital"
+      id="ddlIsPersonGoHospital"
+      [(ngModel)]="incidentObj.detailsOfIncident.wasFirstAidProvided"
+    >
+      <option selected disabled>Was first aid treatment provided?</option>
+      <option [value]="data" *ngFor="let data of commoneOption">
+        {{ data }}
+      </option>
+    </select>
+    <br />
+    <textarea
+      *ngIf="incidentObj.detailsOfIncident.wasFirstAidProvided === 'Yes'"
+      name="incidentDetails"
+      placeholder="Incident details"
+      [(ngModel)]="incidentObj.detailsOfIncident.details"
+    ></textarea>
+    <br />
+
+    <select
+      name="isPersonGoHospital"
+      id="ddlIsPersonGoHospital"
+      [(ngModel)]="incidentObj.detailsOfIncident.seekMedicalAttention"
+    >
+      <option selected disabled>
+        Was Anyone taken to seek medical attention?
+      </option>
+      <option [value]="data" *ngFor="let data of commoneOption">
+        {{ data }}
+      </option>
+    </select>
+    <br />
+    <textarea
+      *ngIf="incidentObj.detailsOfIncident.seekMedicalAttention === 'Yes'"
+      name="incidentDetails"
+      placeholder="Incident details"
+      [(ngModel)]="incidentObj.detailsOfIncident.seekMedicalAttentionDetails"
+    ></textarea>
+    <br />
+  </div>
+</div>
+<br />
+<br />
+
+<button (click)="submit()">Submit</button>
